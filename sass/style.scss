@@ -95,6 +95,12 @@ $form-group-margin-bottom:       30px !default;
 	
 }
 
+@mixin mobile-media {
+	@media (max-width: 992px) {
+	  @content;
+	}
+  }
+
 // Import 
 @import 'bootstrap/mixins';
 @import 'bootstrap/variables';
@@ -268,6 +274,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			span{
 			}
 		}
+
 		.profile-thumb{
 			background-size: cover !important;
 			background-position: center center;
@@ -359,6 +366,23 @@ h1, h2, h3, h4, h5, h6, figure {
 	clear: both;
 	@media screen and (max-width: $screen-sm) {
 		padding: 3em 0;
+	}
+
+	.profile-thumb{
+		background-size: cover !important;
+		background-position: center center;
+		background-repeat: no-repeat;
+		position: relative;
+		height: 200px;
+		width: 200px;
+		margin: 0 auto;
+		margin-bottom: -45%;
+		// border: 1px solid rgba($brand-white,1);
+		@include border-radius(50%);
+
+		@include mobile-media(){
+			margin-bottom: 0%;
+		}
 	}
 }
 #fh5co-started{
@@ -750,10 +774,10 @@ h1, h2, h3, h4, h5, h6, figure {
 	width: 100%;
 	display: table;
 	overflow: hidden;
-	@media screen and(max-width: $screen-sm){
+	@media screen and (max-width: $screen-sm){
 		height: 400px;
 	}
-	@media screen and(max-width: $screen-xs){
+	@media screen and (max-width: $screen-xs){
 		height: 270px;
 	}	
 	.desc{
@@ -779,7 +803,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			-webkit-transform: translate3d(0, 15px, 0);
 			transform: translate3d(0, 15px, 0);
 		}
-		@media screen and(max-width: $screen-sm){
+		@media screen and (max-width: $screen-sm){
 			opacity: 1;
 			background: rgba($brand-white,.6);
 			h3{
@@ -857,10 +881,10 @@ h1, h2, h3, h4, h5, h6, figure {
 		background-repeat: no-repeat;
 		position: relative;
 		height: 300px;
-		@media screen and(max-width: $screen-sm){
+		@media screen and (max-width: $screen-sm){
 			height: 400px;
 		}
-		@media screen and(max-width: $screen-xs){
+		@media screen and (max-width: $screen-xs){
 			height: 270px;
 		}
 	}
@@ -878,7 +902,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 		@include transition(.3s);
 
-		@media screen and(max-width: $screen-sm){
+		@media screen and (max-width: $screen-sm){
 			padding: 10px;
 		}
 
@@ -897,7 +921,7 @@ h1, h2, h3, h4, h5, h6, figure {
 				list-style: none;
 				display: inline-block;
 				margin-left: 10px;
-				@media screen and(max-width: $screen-sm){
+				@media screen and (max-width: $screen-sm){
 					font-size: 14px;
 				}
 				&:first-child{
@@ -952,14 +976,14 @@ h1, h2, h3, h4, h5, h6, figure {
 		position: relative;
 		@include flex();
 		@include flexwrap();
-		@media screen and(max-width: $screen-sm){
+		@media screen and (max-width: $screen-sm){
 			display: none;
 		}
 	}
 	.choose{
 		width: 50%;
 		padding: 4em;
-		@media screen and(max-width: $screen-sm){
+		@media screen and (max-width: $screen-sm){
 			width: 100%;
 			padding: 4em 1em;
 		}
@@ -1278,4 +1302,22 @@ input[type="text"] {
 	.js & {
 		opacity: 0;
 	}
+}
+
+.summary-section{
+
+	@media screen and (min-width: 1200px){
+		margin-left: 88px !important;
+	}
+	
+	margin-left: 52px !important;
+
+	@include mobile-media(){
+		margin-left: 0 !important;
+		margin-top: 16px;
+	}
+}
+
+.text-styles {
+ text-align: justify;
 }
